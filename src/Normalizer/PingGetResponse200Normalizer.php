@@ -52,9 +52,9 @@ class PingGetResponse200Normalizer implements DenormalizerAwareInterface, Denorm
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
         if (array_key_exists('quote', $data)) {
             $object->setQuote($data['quote']);
@@ -79,7 +79,7 @@ class PingGetResponse200Normalizer implements DenormalizerAwareInterface, Denorm
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
+        $data['type'] = $object->getType();
         if ($object->isInitialized('quote') && null !== $object->getQuote()) {
             $data['quote'] = $object->getQuote();
         }

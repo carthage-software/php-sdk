@@ -52,13 +52,13 @@ class LogManagementLogLogResourceNormalizer implements DenormalizerAwareInterfac
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
-        if (array_key_exists('@identity', $data)) {
-            $object->setIdentity($data['@identity']);
-            unset($data['@identity']);
+        if (array_key_exists('identity', $data)) {
+            $object->setIdentity($data['identity']);
+            unset($data['identity']);
         }
         if (array_key_exists('namespace', $data)) {
             $object->setNamespace($data['namespace']);
@@ -107,8 +107,8 @@ class LogManagementLogLogResourceNormalizer implements DenormalizerAwareInterfac
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
-        $data['@identity'] = $object->getIdentity();
+        $data['type'] = $object->getType();
+        $data['identity'] = $object->getIdentity();
         $data['namespace'] = $object->getNamespace();
         $data['level'] = $this->normalizer->normalize($object->getLevel(), 'json', $context);
         $data['template'] = $object->getTemplate();

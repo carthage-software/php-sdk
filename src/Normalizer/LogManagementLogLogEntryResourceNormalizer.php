@@ -52,13 +52,13 @@ class LogManagementLogLogEntryResourceNormalizer implements DenormalizerAwareInt
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
-        if (array_key_exists('@identity', $data)) {
-            $object->setIdentity($data['@identity']);
-            unset($data['@identity']);
+        if (array_key_exists('identity', $data)) {
+            $object->setIdentity($data['identity']);
+            unset($data['identity']);
         }
         if (array_key_exists('log_identity', $data)) {
             $object->setLogIdentity($data['log_identity']);
@@ -119,8 +119,8 @@ class LogManagementLogLogEntryResourceNormalizer implements DenormalizerAwareInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
-        $data['@identity'] = $object->getIdentity();
+        $data['type'] = $object->getType();
+        $data['identity'] = $object->getIdentity();
         $data['log_identity'] = $object->getLogIdentity();
         $data['source'] = $object->getSource();
         $values = [];

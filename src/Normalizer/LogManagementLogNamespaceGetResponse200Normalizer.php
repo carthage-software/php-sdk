@@ -51,9 +51,9 @@ class LogManagementLogNamespaceGetResponse200Normalizer implements DenormalizerA
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
         if (array_key_exists('items', $data)) {
             $values = [];
@@ -78,7 +78,7 @@ class LogManagementLogNamespaceGetResponse200Normalizer implements DenormalizerA
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
+        $data['type'] = $object->getType();
         $values = [];
         foreach ($object->getItems() as $value) {
             $values[] = $this->normalizer->normalize($value, 'json', $context);

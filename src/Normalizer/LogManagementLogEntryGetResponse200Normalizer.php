@@ -51,40 +51,40 @@ class LogManagementLogEntryGetResponse200Normalizer implements DenormalizerAware
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
-        if (array_key_exists('@page', $data)) {
-            $object->setPage($data['@page']);
-            unset($data['@page']);
+        if (array_key_exists('page', $data)) {
+            $object->setPage($data['page']);
+            unset($data['page']);
         }
-        if (array_key_exists('@items_per_page', $data)) {
-            $object->setItemsPerPage($data['@items_per_page']);
-            unset($data['@items_per_page']);
+        if (array_key_exists('items_per_page', $data)) {
+            $object->setItemsPerPage($data['items_per_page']);
+            unset($data['items_per_page']);
         }
-        if (array_key_exists('@total_items', $data)) {
-            $object->setTotalItems($data['@total_items']);
-            unset($data['@total_items']);
+        if (array_key_exists('total_items', $data)) {
+            $object->setTotalItems($data['total_items']);
+            unset($data['total_items']);
         }
-        if (array_key_exists('@first', $data)) {
-            $object->setFirst($data['@first']);
-            unset($data['@first']);
+        if (array_key_exists('first', $data)) {
+            $object->setFirst($data['first']);
+            unset($data['first']);
         }
-        if (array_key_exists('@last', $data)) {
-            $object->setLast($data['@last']);
-            unset($data['@last']);
+        if (array_key_exists('last', $data)) {
+            $object->setLast($data['last']);
+            unset($data['last']);
         }
-        if (array_key_exists('@next', $data) && null !== $data['@next']) {
-            $object->setNext($data['@next']);
-            unset($data['@next']);
-        } elseif (array_key_exists('@next', $data) && null === $data['@next']) {
+        if (array_key_exists('next', $data) && null !== $data['next']) {
+            $object->setNext($data['next']);
+            unset($data['next']);
+        } elseif (array_key_exists('next', $data) && null === $data['next']) {
             $object->setNext(null);
         }
-        if (array_key_exists('@previous', $data) && null !== $data['@previous']) {
-            $object->setPrevious($data['@previous']);
-            unset($data['@previous']);
-        } elseif (array_key_exists('@previous', $data) && null === $data['@previous']) {
+        if (array_key_exists('previous', $data) && null !== $data['previous']) {
+            $object->setPrevious($data['previous']);
+            unset($data['previous']);
+        } elseif (array_key_exists('previous', $data) && null === $data['previous']) {
             $object->setPrevious(null);
         }
         if (array_key_exists('items', $data)) {
@@ -110,17 +110,17 @@ class LogManagementLogEntryGetResponse200Normalizer implements DenormalizerAware
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
-        $data['@page'] = $object->getPage();
-        $data['@items_per_page'] = $object->getItemsPerPage();
-        $data['@total_items'] = $object->getTotalItems();
-        $data['@first'] = $object->getFirst();
-        $data['@last'] = $object->getLast();
+        $data['type'] = $object->getType();
+        $data['page'] = $object->getPage();
+        $data['items_per_page'] = $object->getItemsPerPage();
+        $data['total_items'] = $object->getTotalItems();
+        $data['first'] = $object->getFirst();
+        $data['last'] = $object->getLast();
         if ($object->isInitialized('next') && null !== $object->getNext()) {
-            $data['@next'] = $object->getNext();
+            $data['next'] = $object->getNext();
         }
         if ($object->isInitialized('previous') && null !== $object->getPrevious()) {
-            $data['@previous'] = $object->getPrevious();
+            $data['previous'] = $object->getPrevious();
         }
         $values = [];
         foreach ($object->getItems() as $value) {

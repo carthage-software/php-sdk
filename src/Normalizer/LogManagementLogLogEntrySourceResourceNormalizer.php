@@ -51,9 +51,9 @@ class LogManagementLogLogEntrySourceResourceNormalizer implements DenormalizerAw
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
         if (array_key_exists('source', $data)) {
             $object->setSource($data['source']);
@@ -74,7 +74,7 @@ class LogManagementLogLogEntrySourceResourceNormalizer implements DenormalizerAw
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
+        $data['type'] = $object->getType();
         $data['source'] = $object->getSource();
         foreach ($object as $key => $value) {
             if (preg_match('/.*/', (string) $key)) {

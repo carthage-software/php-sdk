@@ -52,9 +52,9 @@ class LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceItems
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
         if (array_key_exists('date', $data)) {
             $object->setDate(DateTime::createFromFormat('Y-m-d\\TH:i:sP', $data['date']));
@@ -79,7 +79,7 @@ class LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceItems
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
+        $data['type'] = $object->getType();
         $data['date'] = $object->getDate()->format('Y-m-d\\TH:i:sP');
         $data['count'] = $object->getCount();
         foreach ($object as $key => $value) {

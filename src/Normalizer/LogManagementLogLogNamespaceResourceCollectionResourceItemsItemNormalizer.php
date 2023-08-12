@@ -51,9 +51,9 @@ class LogManagementLogLogNamespaceResourceCollectionResourceItemsItemNormalizer 
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
         if (array_key_exists('namespace', $data)) {
             $object->setNamespace($data['namespace']);
@@ -74,7 +74,7 @@ class LogManagementLogLogNamespaceResourceCollectionResourceItemsItemNormalizer 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
+        $data['type'] = $object->getType();
         $data['namespace'] = $object->getNamespace();
         foreach ($object as $key => $value) {
             if (preg_match('/.*/', (string) $key)) {

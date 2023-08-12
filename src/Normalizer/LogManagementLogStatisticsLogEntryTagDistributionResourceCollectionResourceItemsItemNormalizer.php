@@ -51,9 +51,9 @@ class LogManagementLogStatisticsLogEntryTagDistributionResourceCollectionResourc
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
         if (array_key_exists('tag', $data)) {
             $object->setTag($data['tag']);
@@ -78,7 +78,7 @@ class LogManagementLogStatisticsLogEntryTagDistributionResourceCollectionResourc
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
+        $data['type'] = $object->getType();
         $data['tag'] = $object->getTag();
         $data['count'] = $object->getCount();
         foreach ($object as $key => $value) {

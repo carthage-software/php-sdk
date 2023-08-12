@@ -55,9 +55,9 @@ class LogManagementLogStatisticLevelStatisticsGetResponse200ItemsItemNormalizer 
         if (null === $data || false === is_array($data)) {
             return $object;
         }
-        if (array_key_exists('@type', $data)) {
-            $object->setType($data['@type']);
-            unset($data['@type']);
+        if (array_key_exists('type', $data)) {
+            $object->setType($data['type']);
+            unset($data['type']);
         }
         if (array_key_exists('level', $data)) {
             $object->setLevel($this->denormalizer->denormalize($data['level'], 'Carthage\\Sdk\\Model\\LogManagementLogStatisticLevelStatisticsGetResponse200ItemsItemLevel', 'json', $context));
@@ -86,7 +86,7 @@ class LogManagementLogStatisticLevelStatisticsGetResponse200ItemsItemNormalizer 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        $data['@type'] = $object->getType();
+        $data['type'] = $object->getType();
         $data['level'] = $this->normalizer->normalize($object->getLevel(), 'json', $context);
         $data['count'] = $object->getCount();
         $data['percentage'] = $object->getPercentage();
