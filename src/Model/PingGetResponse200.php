@@ -21,6 +21,12 @@ class PingGetResponse200 extends ArrayObject
         return array_key_exists($property, $this->initialized);
     }
     /**
+     * Type of the resource.
+     *
+     * @var string
+     */
+    protected $type;
+    /**
      * A random quote from Hannibal, The Carthaginian General.
      *
      * @var string
@@ -32,6 +38,25 @@ class PingGetResponse200 extends ArrayObject
      * @var DateTime
      */
     protected $time;
+
+    /**
+     * Type of the resource.
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * Type of the resource.
+     */
+    public function setType(string $type): self
+    {
+        $this->initialized['type'] = true;
+        $this->type = $type;
+
+        return $this;
+    }
 
     /**
      * A random quote from Hannibal, The Carthaginian General.

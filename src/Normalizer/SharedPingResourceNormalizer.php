@@ -52,6 +52,10 @@ class SharedPingResourceNormalizer implements DenormalizerAwareInterface, Denorm
         if (null === $data || false === is_array($data)) {
             return $object;
         }
+        if (array_key_exists('@type', $data)) {
+            $object->setType($data['@type']);
+            unset($data['@type']);
+        }
         if (array_key_exists('quote', $data)) {
             $object->setQuote($data['quote']);
             unset($data['quote']);
@@ -75,6 +79,7 @@ class SharedPingResourceNormalizer implements DenormalizerAwareInterface, Denorm
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
+        $data['@type'] = $object->getType();
         if ($object->isInitialized('quote') && null !== $object->getQuote()) {
             $data['quote'] = $object->getQuote();
         }
