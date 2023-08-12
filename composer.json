@@ -1,0 +1,31 @@
+{
+    "name": "carthage/php-sdk",
+    "type": "library",
+    "description": "Carthage Software Development Kit for PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "azjezz",
+            "email": "azjezz@protonmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "jane-php/open-api-runtime": "^7.5"
+    },
+    "require-dev": {
+        "jane-php/open-api-3": "^7.5",
+        "friendsofphp/php-cs-fixer": "^3.22",
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Carthage\\Sdk\\": "src/"
+        }
+    }
+}
