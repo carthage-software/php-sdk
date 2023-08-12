@@ -21,6 +21,12 @@ class LogManagementLogEntryPostBody extends ArrayObject
         return array_key_exists($property, $this->initialized);
     }
     /**
+     * The identity of the associated log.
+     *
+     * @var string
+     */
+    protected $logIdentity;
+    /**
      * The source of the entry, indicating what part of the system the entry is from.
      *
      * @var string
@@ -48,12 +54,25 @@ class LogManagementLogEntryPostBody extends ArrayObject
      * @var DateTime
      */
     protected $occurredAt;
+
     /**
      * The identity of the associated log.
-     *
-     * @var string
      */
-    protected $logIdentity;
+    public function getLogIdentity(): string
+    {
+        return $this->logIdentity;
+    }
+
+    /**
+     * The identity of the associated log.
+     */
+    public function setLogIdentity(string $logIdentity): self
+    {
+        $this->initialized['logIdentity'] = true;
+        $this->logIdentity = $logIdentity;
+
+        return $this;
+    }
 
     /**
      * The source of the entry, indicating what part of the system the entry is from.
@@ -154,25 +173,6 @@ class LogManagementLogEntryPostBody extends ArrayObject
     {
         $this->initialized['occurredAt'] = true;
         $this->occurredAt = $occurredAt;
-
-        return $this;
-    }
-
-    /**
-     * The identity of the associated log.
-     */
-    public function getLogIdentity(): string
-    {
-        return $this->logIdentity;
-    }
-
-    /**
-     * The identity of the associated log.
-     */
-    public function setLogIdentity(string $logIdentity): self
-    {
-        $this->initialized['logIdentity'] = true;
-        $this->logIdentity = $logIdentity;
 
         return $this;
     }

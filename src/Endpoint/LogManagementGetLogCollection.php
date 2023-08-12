@@ -15,7 +15,7 @@ class LogManagementGetLogCollection extends \Carthage\Sdk\Runtime\Client\BaseEnd
      *
      * @var int $page The page number for pagination. Defaults to 1.
      * @var int $items_per_page The number of items per page for pagination. Defaults to 20, with a maximum of 2000.
-     * @var array $levels
+     * @var array $levels[]
      * @var string $contains
      * @var string $from
      * @var string $to

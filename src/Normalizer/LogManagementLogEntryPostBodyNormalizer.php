@@ -52,6 +52,10 @@ class LogManagementLogEntryPostBodyNormalizer implements DenormalizerAwareInterf
         if (null === $data || false === is_array($data)) {
             return $object;
         }
+        if (array_key_exists('log_identity', $data)) {
+            $object->setLogIdentity($data['log_identity']);
+            unset($data['log_identity']);
+        }
         if (array_key_exists('source', $data)) {
             $object->setSource($data['source']);
             unset($data['source']);
@@ -84,10 +88,6 @@ class LogManagementLogEntryPostBodyNormalizer implements DenormalizerAwareInterf
             $object->setOccurredAt(DateTime::createFromFormat('Y-m-d\\TH:i:sP', $data['occurred_at']));
             unset($data['occurred_at']);
         }
-        if (array_key_exists('log_identity', $data)) {
-            $object->setLogIdentity($data['log_identity']);
-            unset($data['log_identity']);
-        }
         foreach ($data as $key_2 => $value_3) {
             if (preg_match('/.*/', (string) $key_2)) {
                 $object[$key_2] = $value_3;
@@ -103,6 +103,7 @@ class LogManagementLogEntryPostBodyNormalizer implements DenormalizerAwareInterf
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
+        $data['log_identity'] = $object->getLogIdentity();
         $data['source'] = $object->getSource();
         $values = [];
         foreach ($object->getContext() as $key => $value) {
@@ -120,7 +121,6 @@ class LogManagementLogEntryPostBodyNormalizer implements DenormalizerAwareInterf
         }
         $data['tags'] = $values_2;
         $data['occurred_at'] = $object->getOccurredAt()->format('Y-m-d\\TH:i:sP');
-        $data['log_identity'] = $object->getLogIdentity();
         foreach ($object as $key_2 => $value_3) {
             if (preg_match('/.*/', (string) $key_2)) {
                 $data[$key_2] = $value_3;
