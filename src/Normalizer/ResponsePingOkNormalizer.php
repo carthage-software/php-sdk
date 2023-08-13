@@ -56,13 +56,13 @@ class ResponsePingOkNormalizer implements DenormalizerAwareInterface, Denormaliz
             $object->setType($data['type']);
             unset($data['type']);
         }
-        if (array_key_exists('quote', $data)) {
-            $object->setQuote($data['quote']);
-            unset($data['quote']);
-        }
         if (array_key_exists('time', $data)) {
             $object->setTime(DateTime::createFromFormat('Y-m-d\\TH:i:sP', $data['time']));
             unset($data['time']);
+        }
+        if (array_key_exists('quote', $data)) {
+            $object->setQuote($data['quote']);
+            unset($data['quote']);
         }
         foreach ($data as $key => $value) {
             if (preg_match('/.*/', (string) $key)) {
@@ -80,10 +80,8 @@ class ResponsePingOkNormalizer implements DenormalizerAwareInterface, Denormaliz
     {
         $data = [];
         $data['type'] = $object->getType();
-        if ($object->isInitialized('quote') && null !== $object->getQuote()) {
-            $data['quote'] = $object->getQuote();
-        }
         $data['time'] = $object->getTime()->format('Y-m-d\\TH:i:sP');
+        $data['quote'] = $object->getQuote();
         foreach ($object as $key => $value) {
             if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value;

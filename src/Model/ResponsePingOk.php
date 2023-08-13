@@ -27,17 +27,17 @@ class ResponsePingOk extends ArrayObject
      */
     protected $type;
     /**
-     * A random quote from Hannibal, The Carthaginian General.
-     *
-     * @var string
-     */
-    protected $quote;
-    /**
      * The date and time.
      *
      * @var DateTime
      */
     protected $time;
+    /**
+     * A random quote from Hannibal, The Carthaginian General.
+     *
+     * @var string
+     */
+    protected $quote;
 
     /**
      * Type of the resource.
@@ -59,25 +59,6 @@ class ResponsePingOk extends ArrayObject
     }
 
     /**
-     * A random quote from Hannibal, The Carthaginian General.
-     */
-    public function getQuote(): string
-    {
-        return $this->quote;
-    }
-
-    /**
-     * A random quote from Hannibal, The Carthaginian General.
-     */
-    public function setQuote(string $quote): self
-    {
-        $this->initialized['quote'] = true;
-        $this->quote = $quote;
-
-        return $this;
-    }
-
-    /**
      * The date and time.
      */
     public function getTime(): DateTime
@@ -92,6 +73,25 @@ class ResponsePingOk extends ArrayObject
     {
         $this->initialized['time'] = true;
         $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * A random quote from Hannibal, The Carthaginian General.
+     */
+    public function getQuote(): string
+    {
+        return $this->quote;
+    }
+
+    /**
+     * A random quote from Hannibal, The Carthaginian General.
+     */
+    public function setQuote(string $quote): self
+    {
+        $this->initialized['quote'] = true;
+        $this->quote = $quote;
 
         return $this;
     }
