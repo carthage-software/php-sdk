@@ -13,15 +13,15 @@ class LogManagementGetLogCollection extends \Carthage\Sdk\Runtime\Client\BaseEnd
      *
      * @param array $queryParameters {
      *
-     * @var int $page The page number for pagination. Defaults to 1.
-     * @var int $items_per_page The number of items per page for pagination. Defaults to 20, with a maximum of 2000.
-     * @var array $levels[]
      * @var string $contains
+     * @var array $levels[]
      * @var string $from
      * @var string $to
-     * @var string $order
      * @var string $sort_by
-     *             }
+     * @var string $order
+     * @var int $page The page number for pagination. Defaults to 1.
+     * @var int $items_per_page The number of items per page for pagination. Defaults to 20, with a maximum of 2000.
+     *          }
      */
     public function __construct(array $queryParameters = [])
     {
@@ -51,17 +51,17 @@ class LogManagementGetLogCollection extends \Carthage\Sdk\Runtime\Client\BaseEnd
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['page', 'items_per_page', 'levels', 'contains', 'from', 'to', 'order', 'sort_by']);
+        $optionsResolver->setDefined(['contains', 'levels', 'from', 'to', 'sort_by', 'order', 'page', 'items_per_page']);
         $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults(['page' => 1, 'items_per_page' => 20, 'levels' => [0 => 100, 1 => 200, 2 => 250, 3 => 300, 4 => 400, 5 => 500, 6 => 550, 7 => 600], 'order' => 'DESC', 'sort_by' => 'lastEntryOccurredAt']);
-        $optionsResolver->addAllowedTypes('page', ['int']);
-        $optionsResolver->addAllowedTypes('items_per_page', ['int']);
-        $optionsResolver->addAllowedTypes('levels', ['array']);
+        $optionsResolver->setDefaults(['levels' => [0 => 100, 1 => 200, 2 => 250, 3 => 300, 4 => 400, 5 => 500, 6 => 550, 7 => 600], 'sort_by' => 'lastEntryOccurredAt', 'order' => 'DESC', 'page' => 1, 'items_per_page' => 20]);
         $optionsResolver->addAllowedTypes('contains', ['string', 'null']);
+        $optionsResolver->addAllowedTypes('levels', ['array']);
         $optionsResolver->addAllowedTypes('from', ['string', 'null']);
         $optionsResolver->addAllowedTypes('to', ['string', 'null']);
-        $optionsResolver->addAllowedTypes('order', ['string']);
         $optionsResolver->addAllowedTypes('sort_by', ['string']);
+        $optionsResolver->addAllowedTypes('order', ['string']);
+        $optionsResolver->addAllowedTypes('page', ['int']);
+        $optionsResolver->addAllowedTypes('items_per_page', ['int']);
 
         return $optionsResolver;
     }

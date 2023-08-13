@@ -44,6 +44,7 @@ class LogManagementCreateLog extends \Carthage\Sdk\Runtime\Client\BaseEndpoint i
      * {@inheritDoc}
      *
      * @throws \Carthage\Sdk\Exception\LogManagementCreateLogBadRequestException
+     * @throws \Carthage\Sdk\Exception\LogManagementCreateLogConflictException
      *
      * @return \Carthage\Sdk\Model\LogManagementLogPostResponse200|null
      */
@@ -56,6 +57,9 @@ class LogManagementCreateLog extends \Carthage\Sdk\Runtime\Client\BaseEndpoint i
         }
         if (400 === $status) {
             throw new \Carthage\Sdk\Exception\LogManagementCreateLogBadRequestException($response);
+        }
+        if (409 === $status) {
+            throw new \Carthage\Sdk\Exception\LogManagementCreateLogConflictException($response);
         }
     }
 

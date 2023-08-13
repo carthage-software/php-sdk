@@ -38,15 +38,15 @@ class Client extends \Carthage\Sdk\Runtime\Client\Client
      *
      * @param array $queryParameters {
      *
-     * @var int $page The page number for pagination. Defaults to 1.
-     * @var int $items_per_page The number of items per page for pagination. Defaults to 20, with a maximum of 2000.
-     * @var array $levels[]
      * @var string $contains
+     * @var array $levels[]
      * @var string $from
      * @var string $to
-     * @var string $order
      * @var string $sort_by
-     *             }
+     * @var string $order
+     * @var int $page The page number for pagination. Defaults to 1.
+     * @var int $items_per_page The number of items per page for pagination. Defaults to 20, with a maximum of 2000.
+     *          }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -66,6 +66,7 @@ class Client extends \Carthage\Sdk\Runtime\Client\Client
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Carthage\Sdk\Exception\LogManagementCreateLogBadRequestException
+     * @throws \Carthage\Sdk\Exception\LogManagementCreateLogConflictException
      *
      * @return \Carthage\Sdk\Model\LogManagementLogPostResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -154,26 +155,6 @@ class Client extends \Carthage\Sdk\Runtime\Client\Client
     }
 
     /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Carthage\Sdk\Model\LogManagementLogEntryTagGetResponse200|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function logManagementGetLogEntryTagCollection(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntryTagCollection(), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Carthage\Sdk\Model\LogManagementLogEntrySourceGetResponse200|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function logManagementGetLogEntrySourceCollection(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntrySourceCollection(), $fetch);
-    }
-
-    /**
      * Delete a log entry by identity.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -199,6 +180,26 @@ class Client extends \Carthage\Sdk\Runtime\Client\Client
     public function logManagementGetLogEntry(string $identity, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntry($identity), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Carthage\Sdk\Model\LogManagementLogEntryTagGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function logManagementGetLogEntryTagCollection(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntryTagCollection(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Carthage\Sdk\Model\LogManagementLogEntrySourceGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function logManagementGetLogEntrySourceCollection(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntrySourceCollection(), $fetch);
     }
 
     /**

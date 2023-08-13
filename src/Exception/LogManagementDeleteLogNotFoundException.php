@@ -13,7 +13,7 @@ class LogManagementDeleteLogNotFoundException extends NotFoundException
 
     public function __construct(?\Psr\Http\Message\ResponseInterface $response = null)
     {
-        parent::__construct('The log was not found');
+        parent::__construct('The log resource instance');
         $this->response = $response;
     }
 

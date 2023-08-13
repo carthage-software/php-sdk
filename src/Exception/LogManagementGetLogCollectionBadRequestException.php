@@ -13,7 +13,7 @@ class LogManagementGetLogCollectionBadRequestException extends BadRequestExcepti
 
     public function __construct(?\Psr\Http\Message\ResponseInterface $response = null)
     {
-        parent::__construct('The log filter is invalid');
+        parent::__construct('The request is invalid');
         $this->response = $response;
     }
 

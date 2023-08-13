@@ -13,7 +13,7 @@ class LogManagementCreateLogBadRequestException extends BadRequestException
 
     public function __construct(?\Psr\Http\Message\ResponseInterface $response = null)
     {
-        parent::__construct('The log data transfer object is invalid');
+        parent::__construct('The request is invalid');
         $this->response = $response;
     }
 

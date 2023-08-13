@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Carthage\Sdk\Exception;
 
-class LogManagementGetLogEntryCollectionBadRequestException extends BadRequestException
+class LogManagementCreateLogConflictException extends ConflictException
 {
     /**
      * @var \Psr\Http\Message\ResponseInterface
@@ -13,7 +13,7 @@ class LogManagementGetLogEntryCollectionBadRequestException extends BadRequestEx
 
     public function __construct(?\Psr\Http\Message\ResponseInterface $response = null)
     {
-        parent::__construct('The request is invalid');
+        parent::__construct('The log already exists');
         $this->response = $response;
     }
 

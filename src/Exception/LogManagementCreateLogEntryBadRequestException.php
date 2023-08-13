@@ -13,7 +13,7 @@ class LogManagementCreateLogEntryBadRequestException extends BadRequestException
 
     public function __construct(?\Psr\Http\Message\ResponseInterface $response = null)
     {
-        parent::__construct('The log entry was invalid');
+        parent::__construct('The request is invalid');
         $this->response = $response;
     }
 
