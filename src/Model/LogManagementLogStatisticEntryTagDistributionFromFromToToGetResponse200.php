@@ -9,7 +9,7 @@ use DateTime;
 
 use function array_key_exists;
 
-class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayObject
+class LogManagementLogStatisticEntryTagDistributionFromFromToToGetResponse200 extends ArrayObject
 {
     /**
      * @var array
@@ -41,7 +41,7 @@ class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayO
     /**
      * Array of LogEntryTagDistributionResource.
      *
-     * @var ResponseLogManagementGetLogEntryTagDistributionCollectionOkItemsItem[]
+     * @var LogManagementLogStatisticEntryTagDistributionFromFromToToGetResponse200ItemsItem[]
      */
     protected $items;
 
@@ -105,7 +105,7 @@ class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayO
     /**
      * Array of LogEntryTagDistributionResource.
      *
-     * @return ResponseLogManagementGetLogEntryTagDistributionCollectionOkItemsItem[]
+     * @return LogManagementLogStatisticEntryTagDistributionFromFromToToGetResponse200ItemsItem[]
      */
     public function getItems(): array
     {
@@ -115,7 +115,7 @@ class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayO
     /**
      * Array of LogEntryTagDistributionResource.
      *
-     * @param ResponseLogManagementGetLogEntryTagDistributionCollectionOkItemsItem[] $items
+     * @param LogManagementLogStatisticEntryTagDistributionFromFromToToGetResponse200ItemsItem[] $items
      */
     public function setItems(array $items): self
     {

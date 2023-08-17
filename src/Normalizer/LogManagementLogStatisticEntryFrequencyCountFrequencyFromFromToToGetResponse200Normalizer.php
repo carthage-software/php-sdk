@@ -20,7 +20,7 @@ use function array_key_exists;
 use function is_array;
 use function is_object;
 
-class LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceNormalizer implements DenormalizerAwareInterface, DenormalizerInterface, NormalizerAwareInterface, NormalizerInterface
+class LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200Normalizer implements DenormalizerAwareInterface, DenormalizerInterface, NormalizerAwareInterface, NormalizerInterface
 {
     use CheckArray;
     use DenormalizerAwareTrait;
@@ -29,12 +29,12 @@ class LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceNorma
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Carthage\\Sdk\\Model\\LogManagementLogStatisticsLogFrequencyCountResourceCollectionResource' === $type;
+        return 'Carthage\\Sdk\\Model\\LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Carthage\\Sdk\\Model\\LogManagementLogStatisticsLogFrequencyCountResourceCollectionResource' === $data::class;
+        return is_object($data) && 'Carthage\\Sdk\\Model\\LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200' === $data::class;
     }
 
     /**
@@ -48,7 +48,7 @@ class LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceNorma
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Carthage\Sdk\Model\LogManagementLogStatisticsLogFrequencyCountResourceCollectionResource();
+        $object = new \Carthage\Sdk\Model\LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -67,7 +67,7 @@ class LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceNorma
         if (array_key_exists('items', $data)) {
             $values = [];
             foreach ($data['items'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Carthage\\Sdk\\Model\\LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceItemsItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Carthage\\Sdk\\Model\\LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200ItemsItem', 'json', $context);
             }
             $object->setItems($values);
             unset($data['items']);
@@ -106,6 +106,6 @@ class LogManagementLogStatisticsLogFrequencyCountResourceCollectionResourceNorma
 
     public function getSupportedTypes(?string $format = null): array
     {
-        return ['Carthage\\Sdk\\Model\\LogManagementLogStatisticsLogFrequencyCountResourceCollectionResource' => false];
+        return ['Carthage\\Sdk\\Model\\LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200' => false];
     }
 }

@@ -7,6 +7,7 @@ namespace Carthage\Sdk\Normalizer;
 use ArrayObject;
 use Carthage\Sdk\Runtime\Normalizer\CheckArray;
 use Carthage\Sdk\Runtime\Normalizer\ValidatorTrait;
+use DateTime;
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
@@ -55,6 +56,14 @@ class LogManagementLogStatisticsLogEntrySourceFrequencyResourceCollectionResourc
             $object->setType($data['type']);
             unset($data['type']);
         }
+        if (array_key_exists('from', $data)) {
+            $object->setFrom(DateTime::createFromFormat('Y-m-d', $data['from'])->setTime(0, 0, 0));
+            unset($data['from']);
+        }
+        if (array_key_exists('to', $data)) {
+            $object->setTo(DateTime::createFromFormat('Y-m-d', $data['to'])->setTime(0, 0, 0));
+            unset($data['to']);
+        }
         if (array_key_exists('items', $data)) {
             $values = [];
             foreach ($data['items'] as $value) {
@@ -79,6 +88,8 @@ class LogManagementLogStatisticsLogEntrySourceFrequencyResourceCollectionResourc
     {
         $data = [];
         $data['type'] = $object->getType();
+        $data['from'] = $object->getFrom()->format('Y-m-d');
+        $data['to'] = $object->getTo()->format('Y-m-d');
         $values = [];
         foreach ($object->getItems() as $value) {
             $values[] = $this->normalizer->normalize($value, 'json', $context);

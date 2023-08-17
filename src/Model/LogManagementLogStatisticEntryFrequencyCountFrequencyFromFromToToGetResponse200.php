@@ -9,7 +9,7 @@ use DateTime;
 
 use function array_key_exists;
 
-class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayObject
+class LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200 extends ArrayObject
 {
     /**
      * @var array
@@ -39,9 +39,9 @@ class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayO
      */
     protected $to;
     /**
-     * Array of LogEntryTagDistributionResource.
+     * Array of LogEntryFrequencyCountResource.
      *
-     * @var ResponseLogManagementGetLogEntryTagDistributionCollectionOkItemsItem[]
+     * @var LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200ItemsItem[]
      */
     protected $items;
 
@@ -103,9 +103,9 @@ class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayO
     }
 
     /**
-     * Array of LogEntryTagDistributionResource.
+     * Array of LogEntryFrequencyCountResource.
      *
-     * @return ResponseLogManagementGetLogEntryTagDistributionCollectionOkItemsItem[]
+     * @return LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200ItemsItem[]
      */
     public function getItems(): array
     {
@@ -113,9 +113,9 @@ class ResponseLogManagementGetLogEntryTagDistributionCollectionOk extends ArrayO
     }
 
     /**
-     * Array of LogEntryTagDistributionResource.
+     * Array of LogEntryFrequencyCountResource.
      *
-     * @param ResponseLogManagementGetLogEntryTagDistributionCollectionOkItemsItem[] $items
+     * @param LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200ItemsItem[] $items
      */
     public function setItems(array $items): self
     {

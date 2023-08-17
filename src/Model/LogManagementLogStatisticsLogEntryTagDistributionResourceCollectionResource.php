@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Carthage\Sdk\Model;
 
 use ArrayObject;
+use DateTime;
 
 use function array_key_exists;
 
@@ -25,6 +26,18 @@ class LogManagementLogStatisticsLogEntryTagDistributionResourceCollectionResourc
      * @var string
      */
     protected $type;
+    /**
+     * Start date for the collection.
+     *
+     * @var DateTime
+     */
+    protected $from;
+    /**
+     * End date for the collection.
+     *
+     * @var DateTime
+     */
+    protected $to;
     /**
      * Array of LogEntryTagDistributionResource.
      *
@@ -47,6 +60,44 @@ class LogManagementLogStatisticsLogEntryTagDistributionResourceCollectionResourc
     {
         $this->initialized['type'] = true;
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Start date for the collection.
+     */
+    public function getFrom(): DateTime
+    {
+        return $this->from;
+    }
+
+    /**
+     * Start date for the collection.
+     */
+    public function setFrom(DateTime $from): self
+    {
+        $this->initialized['from'] = true;
+        $this->from = $from;
+
+        return $this;
+    }
+
+    /**
+     * End date for the collection.
+     */
+    public function getTo(): DateTime
+    {
+        return $this->to;
+    }
+
+    /**
+     * End date for the collection.
+     */
+    public function setTo(DateTime $to): self
+    {
+        $this->initialized['to'] = true;
+        $this->to = $to;
 
         return $this;
     }

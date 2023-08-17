@@ -222,31 +222,35 @@ class Client extends \Carthage\Sdk\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Carthage\Sdk\Model\LogManagementLogStatisticEntryFrequencyCountFrequencyGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Carthage\Sdk\Model\LogManagementLogStatisticEntryFrequencyCountFrequencyFromFromToToGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
-    public function logManagementGetLogEntryFrequencyCountCollection(string $frequency, string $fetch = self::FETCH_OBJECT)
+    public function logManagementGetLogEntryFrequencyCountCollection(string $frequency, string $from, string $to, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntryFrequencyCountCollection($frequency), $fetch);
+        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntryFrequencyCountCollection($frequency, $from, $to), $fetch);
     }
 
     /**
+     * Get the frequency count of log entry sources.
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Carthage\Sdk\Model\LogManagementLogStatisticEntrySourceFrequencyGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Carthage\Sdk\Model\LogManagementLogStatisticEntrySourceFrequencyFromFromToToGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
-    public function logManagementGetLogEntrySourceFrequencyCollection(string $fetch = self::FETCH_OBJECT)
+    public function logManagementGetLogEntrySourceFrequencyCollection(string $from, string $to, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntrySourceFrequencyCollection(), $fetch);
+        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntrySourceFrequencyCollection($from, $to), $fetch);
     }
 
     /**
+     * Get the distribution of log entry tags.
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Carthage\Sdk\Model\LogManagementLogStatisticEntryTagDistributionGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Carthage\Sdk\Model\LogManagementLogStatisticEntryTagDistributionFromFromToToGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
-    public function logManagementGetLogEntryTagDistributionCollection(string $fetch = self::FETCH_OBJECT)
+    public function logManagementGetLogEntryTagDistributionCollection(string $from, string $to, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntryTagDistributionCollection(), $fetch);
+        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogEntryTagDistributionCollection($from, $to), $fetch);
     }
 
     /**
@@ -254,21 +258,23 @@ class Client extends \Carthage\Sdk\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Carthage\Sdk\Model\LogManagementLogStatisticFrequencyCountFrequencyGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Carthage\Sdk\Model\LogManagementLogStatisticFrequencyCountFrequencyFromFromToToGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
-    public function logManagementGetLogFrequencyCountCollection(string $frequency, string $fetch = self::FETCH_OBJECT)
+    public function logManagementGetLogFrequencyCountCollection(string $frequency, string $from, string $to, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogFrequencyCountCollection($frequency), $fetch);
+        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogFrequencyCountCollection($frequency, $from, $to), $fetch);
     }
 
     /**
+     * Get the statistics of log levels.
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Carthage\Sdk\Model\LogManagementLogStatisticLevelStatisticsGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Carthage\Sdk\Model\LogManagementLogStatisticLevelStatisticsFromFromToToGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
-    public function logManagementGetLogLevelStatisticsCollection(string $fetch = self::FETCH_OBJECT)
+    public function logManagementGetLogLevelStatisticCollection(string $from, string $to, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogLevelStatisticsCollection(), $fetch);
+        return $this->executeEndpoint(new \Carthage\Sdk\Endpoint\LogManagementGetLogLevelStatisticCollection($from, $to), $fetch);
     }
 
     public static function create($httpClient = null, array $additionalPlugins = [], array $additionalNormalizers = [])

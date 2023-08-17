@@ -8,13 +8,17 @@ class LogManagementGetLogFrequencyCountCollection extends \Carthage\Sdk\Runtime\
 {
     use \Carthage\Sdk\Runtime\Client\EndpointTrait;
     protected $frequency;
+    protected $from;
+    protected $to;
 
     /**
      * Get the frequency count of logs.
      */
-    public function __construct(string $frequency)
+    public function __construct(string $frequency, string $from, string $to)
     {
         $this->frequency = $frequency;
+        $this->from = $from;
+        $this->to = $to;
     }
 
     public function getMethod(): string
@@ -24,7 +28,7 @@ class LogManagementGetLogFrequencyCountCollection extends \Carthage\Sdk\Runtime\
 
     public function getUri(): string
     {
-        return str_replace(['{frequency}'], [$this->frequency], '/log-management/log/statistic/frequency-count/{frequency}');
+        return str_replace(['{frequency}', '{from}', '{to}'], [$this->frequency, $this->from, $this->to], '/log-management/log/statistic/frequency-count/{frequency}/from/{from}/to/{to}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -40,14 +44,14 @@ class LogManagementGetLogFrequencyCountCollection extends \Carthage\Sdk\Runtime\
     /**
      * {@inheritDoc}
      *
-     * @return \Carthage\Sdk\Model\LogManagementLogStatisticFrequencyCountFrequencyGetResponse200|null
+     * @return \Carthage\Sdk\Model\LogManagementLogStatisticFrequencyCountFrequencyFromFromToToGetResponse200|null
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Carthage\\Sdk\\Model\\LogManagementLogStatisticFrequencyCountFrequencyGetResponse200', 'json');
+            return $serializer->deserialize($body, 'Carthage\\Sdk\\Model\\LogManagementLogStatisticFrequencyCountFrequencyFromFromToToGetResponse200', 'json');
         }
     }
 
